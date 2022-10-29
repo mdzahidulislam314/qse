@@ -69,7 +69,7 @@ class LoginController extends Controller
 
             if (Auth::attempt($credentials)) {
                 // Authentication passed...
-                return redirect()->to('backpanel/home');
+                return redirect()->to('admin/home');
             }else{
                 return redirect()->back()->with('error','Credentials dose not match!');
             }
@@ -112,7 +112,7 @@ class LoginController extends Controller
 
         return $request->wantsJson()
             ? new Response('', 204)
-            : redirect('/backpanel/login');
+            : redirect('/admin/login');
 
 //        Auth::logout();
 //        return redirect('/dashboard/login');

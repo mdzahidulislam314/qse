@@ -49,7 +49,7 @@ class LandingPageController extends Controller
         $brands = Brand::where('status', true)->latest()->get(['image']);
         $blogs = Blog::where('is_active', true)->latest()->take(10)->get(['slug','image','title','created_at']);
 
-        $sliders = Slider::where('status', true)->orderBy('orders', 'ASC')->take(7)->get(['image_url','open_new_tab','image']);
+        $sliders = Slider::where('status', true)->take(6)->get();
         $flashDeal  = Flashdeal::where('is_active', true)->where('is_feature', true)->first(['start_date','end_date','slug']);
         //category show
         $showHomepageCat = Category::where('status', true)->showhomepage()->take(6)->get(['name','id','slug']);

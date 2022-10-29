@@ -3,144 +3,105 @@
 @section('title', 'Cart')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/site/assets/css/style.min.css">
+
 @stop
 
 @section('main')
     <main class="main">
-        <!-- Start of Page Header -->
-        <div class="page-header">
+        <div class="site-breadcrumb" style="background: url(assets/img/breadcrumb/01.jpg);">
             <div class="container">
-                <h1 class="page-title mb-0">Contact Us</h1>
-            </div>
-        </div>
-        <!-- End of Page Header -->
-
-        <!-- Start of Breadcrumb -->
-        <nav class="breadcrumb-nav mb-10 pb-1">
-            <div class="container">
-                <ul class="breadcrumb">
-                    <li><a href="demo1.html">Home</a></li>
-                    <li>Contact Us</li>
+                <h2 class="breadcrumb-title">Contact Us</h2>
+                <ul class="breadcrumb-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Contact Us</li>
                 </ul>
             </div>
-        </nav>
-        <!-- End of Breadcrumb -->
+        </div>
 
-        <!-- Start of PageContent -->
-        <div class="page-content contact-us">
+        <div class="contact-area py-120">
             <div class="container">
-                <section class="content-title-section mb-10">
-                    <h3 class="title title-center mb-3">Contact
-                        With Chunaputi
-                    </h3>
-                    <p class="text-center">Lorem ipsum dolor sit amet,
-                        consectetur
-                        adipiscing elit, sed do eiusmod tempor incididunt ut</p>
-                </section>
-                <!-- End of Contact Title Section -->
-
-                <section class="contact-information-section mb-10">
-                    <div class="row owl-carousel owl-theme cols-xl-4 cols-md-3 cols-sm-2 cols-1" data-owl-options="{
-                        'items': 4,
-                        'nav': false,
-                        'dots': false,
-                        'loop': false,
-                        'margin': 20,
-                        'responsive': {
-                            '0': {
-                                'items': 1
-                            },
-                            '480': {
-                                'items': 2
-                            },
-                            '768': {
-                                'items': 3
-                            },
-                            '992': {
-                                'items': 4
-                            }
-                        }
-                    }">
-                        <div class="icon-box text-center icon-box-primary">
-                                <span class="icon-box-icon icon-email">
-                                    <i class="w-icon-envelop-closed"></i>
-                                </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">E-mail Address</h4>
-                                <p> {{ get_setting('email') }} </p>
+                <div class="contact-wrapper">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="contact-content">
+                                <div class="contact-info">
+                                    <div class="contact-info-icon">
+                                        <i class="fal fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <h5>Office Address</h5>
+                                        <p>{{ get_setting('address') }}</p>
+                                    </div>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-info-icon">
+                                        <i class="fal fa-phone"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <h5>Call Us</h5>
+                                        <p>{{ get_setting('phone') }}</p>
+                                    </div>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-info-icon">
+                                        <i class="fal fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <h5>Email Us</h5>
+                                        <p><a href="" class="__cf_email__">{{ get_setting('email') }}</a></p>
+                                    </div>
+                                </div>
+                                <div class="contact-info">
+                                    <div class="contact-info-icon">
+                                        <i class="fal fa-clock"></i>
+                                    </div>
+                                    <div class="contact-info-content">
+                                        <h5>Open Time</h5>
+                                        <p>{{ get_setting('office_time') }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="icon-box text-center icon-box-primary">
-                                <span class="icon-box-icon icon-headphone">
-                                    <i class="w-icon-headphone"></i>
-                                </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Phone Number</h4>
-                                <p>{{ get_setting('phone') }}</p>
-                            </div>
-                        </div>
-                        <div class="icon-box text-center icon-box-primary">
-                                <span class="icon-box-icon icon-map-marker">
-                                    <i class="w-icon-map-marker"></i>
-                                </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Address</h4>
-                                <p> {{ get_setting('address') }} </p>
-                            </div>
-                        </div>
-                        <div class="icon-box text-center icon-box-primary">
-                                <span class="icon-box-icon icon-fax">
-                                    <i class="w-icon-fax"></i>
-                                </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">IMO/Whats'up</h4>
-                                <p>{{ get_setting('imo_whatsup') }}</p>
+                        <div class="col-lg-8 align-self-center">
+                            <div class="contact-form">
+                                <div class="contact-form-header">
+                                    <h2>HAVE ANY QUESTIONS?</h2>
+                                </div>
+                                <form method="post" action="{{route('contact.store')}}" id="contact-form">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="name" placeholder="Your Name" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" name="email" placeholder="Your Email" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="subject" placeholder="Your Subject" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="comments" cols="30" rows="5" class="form-control" placeholder="Write Your Message"></textarea>
+                                    </div>
+                                    <button type="submit" class="theme-btn">Send Message <i class="far fa-paper-plane"></i></button>
+                                    <div class="col-md-12 mt-3">
+                                        <div class="form-messege text-success"></div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </section>
-                <!-- End of Contact Information section -->
-
-                <hr class="divider mb-10 pb-1">
-
-                <section class="contact-section">
-                    <div class="row gutter-lg pb-3">
-                        <div class="col-lg-6 mb-8">
-                            <h4 class="title mb-3">Location Map</h4>
-                            <div>
-                                {!! $settingsArr['map_code'] ?? '' !!}
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-8">
-                            <h4 class="title mb-3"> SEND US AN EMAIL:</h4>
-                            <form class="form contact-us-form" action="{{route('contact.store')}}" method="post">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Your Phone</label>
-                                    <input type="text" id="phone" name="phone" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Your Email</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="comments">Your Message</label>
-                                    <textarea id="comments" name="comments" cols="30" rows="5" class="form-control" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-dark btn-rounded">Send Now</button>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-                <!-- End of Contact Section -->
+                </div>
             </div>
         </div>
-        <!-- End of PageContent -->
+
+        <div class="contact-map">
+            {!! $settingsArr['map_code'] ?? '' !!}
+        </div>
     </main>
 @stop
 

@@ -40,7 +40,7 @@
                                 <div class="card">
                                     <div class="card-block">
                                         <div class="row">
-                                            <div class="col-md-7">
+                                            <div class="col-md-12">
                                                 <form action="{{ route('sliders.update', $slider) }}" method="POST"  enctype="multipart/form-data">
                                                     @method('PUT')
                                                     @csrf
@@ -52,12 +52,16 @@
 
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="orders">Order By</label>
-                                                                <input type="number" class="form-control @error('orders') is-invalid @enderror"
-                                                                       id="orders" name="orders" value="{{ $slider->orders ?? '' }}"/>
+                                                                <label for="orders">Title</label>
+                                                                <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                                                       id="title" name="title" value="{{ $slider->title ?? '' }}"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Description</label>
+                                                                <textarea class="ckeditor" name="description" cols="3">{{$slider->description}}</textarea>
                                                             </div>
                                                             <div class="form-group mb-1">
-                                                                <label for="validationCustom03">Slider image <span class="text-danger">*</span> <small class=""> (940 x 509)</small></label>
+                                                                <label for="validationCustom03">Slider image <span class="text-danger">*</span> <small class=""> (1920 x 1280)</small></label>
                                                                 <div class="file-input">
                                                                     <input type="file" name="image" id="image" class="file-input__input" onchange="singleImagePreview(event,'ImgPreview')"/>
                                                                     <label class="file-input__label" for="image">
@@ -82,10 +86,6 @@
                                                                 <label class="form-label d-block">Active</label>
                                                                 <input type="checkbox" class="js-switch" name="status" {{isset($slider->status) && $slider->status === 1 ? 'checked' : '' }}/>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label class="form-label d-block">Open New Tab</label>
-                                                                <input type="checkbox" class="js-switch" name="open_new_tab" {{isset($slider->open_new_tab) && $slider->open_new_tab === '_blank' ? 'checked' : '' }}/>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                     <button type="submit" class="btn btn-success">Update</button>
@@ -104,7 +104,7 @@
 @stop
 
 @push('scripts')
-
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
         $(document).ready(function(){
             $('.dropify').dropify();

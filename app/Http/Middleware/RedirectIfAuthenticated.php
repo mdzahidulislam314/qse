@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     {
 
         if (Auth::guard($guard)->check()) {
-            return redirect('/backpanel/home');
+            return redirect('/admin/home');
 
         }elseif (Auth::guard('customer')->check()){
             return redirect('/');

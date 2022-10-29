@@ -1,3 +1,7 @@
+@php
+	$allPages = \App\Page::where('is_active', true)->get();
+@endphp
+
 <footer class="footer-area">
 	<div class="footer-widget">
 		<div class="container">
@@ -5,19 +9,19 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="footer-widget-box about-us">
 						<a href="#" class="footer-logo">
-							<img src="assets/img/logo/logo-light.png" alt="" />
+							<img src="{{get_setting('footer_logo')}}" alt="" />
 						</a>
 						<p class="mb-4">
-							We are many variations of passages available but the majority have suffered alteration in some form by injected humour words believable.
+							{{get_setting('footertext')}}
 						</p>
 						<ul class="footer-contact">
 							<li>
-								<a href="tel:+21236547898"><i class="far fa-phone"></i>+2 123 654 7898</a>
+								<a href="tel:+21236547898"><i class="far fa-phone"></i>{{get_setting('phone')}}</a>
 							</li>
-							<li><i class="far fa-map-marker-alt"></i>25/B Milford Road, New York</li>
+							<li><i class="far fa-map-marker-alt"></i>{{get_setting('address')}}</li>
 							<li>
-								<a href="https://live.themewild.com/cdn-cgi/l/email-protection#167f78707956736e777b667a733875797b">
-									<i class="far fa-envelope"></i><span class="__cf_email__" data-cfemail="87eee9e1e8c7e2ffe6eaf7ebe2a9e4e8ea">[email&#160;protected]</span>
+								<a href="#">
+									<i class="far fa-envelope"></i><span class="__cf_email__">{{get_setting('email')}}</span>
 								</a>
 							</li>
 						</ul>
@@ -28,23 +32,16 @@
 						<h4 class="footer-widget-title">Quick Links</h4>
 						<ul class="footer-list">
 							<li>
-								<a href="#"><i class="fas fa-angle-double-right"></i> About Us</a>
+								<a href="{{route('contact.page')}}"><i class="fas fa-angle-double-right"></i> Contact Us</a>
 							</li>
 							<li>
-								<a href="#"><i class="fas fa-angle-double-right"></i> FAQ's</a>
+								<a href="{{route('faqs.page')}}"><i class="fas fa-angle-double-right"></i> FAQ'S</a>
 							</li>
-							<li>
-								<a href="#"><i class="fas fa-angle-double-right"></i> Terms Of Service</a>
-							</li>
-							<li>
-								<a href="#"><i class="fas fa-angle-double-right"></i> Privacy policy</a>
-							</li>
-							<li>
-								<a href="#"><i class="fas fa-angle-double-right"></i> Our Team</a>
-							</li>
-							<li>
-								<a href="#"><i class="fas fa-angle-double-right"></i> Latest Blog</a>
-							</li>
+							@foreach($allPages as $page)
+								<li>
+									<a href="{{route('all.pages', $page->slug)}}"><i class="fas fa-angle-double-right"></i> {{$page->title}}</a>
+								</li>
+							@endforeach
 						</ul>
 					</div>
 				</div>
@@ -75,14 +72,29 @@
 				</div>
 				<div class="col-md-6 col-lg-3">
 					<div class="footer-widget-box list">
-						<h4 class="footer-widget-title">Newsletter</h4>
-						<div class="footer-newsletter">
-							<p>Subscribe Our Newsletter To Get Latest Update And News</p>
-							<div class="subscribe-form">
-								<form action="#">
-									<input type="email" class="form-control" placeholder="Your Email" />
-									<button class="theme-btn" type="submit">Subscribe Now <i class="far fa-paper-plane"></i></button>
-								</form>
+						<h4 class="footer-widget-title">Office Time</h4>
+						<div class="textwidget row">
+							<div class="col-md-6 col-sm-6 col-xs-5">
+								<ul>
+									<li>Sunday</li>
+									<li>Monday</li>
+									<li>Tuesday</li>
+									<li>Wendsday</li>
+									<li>Thursday</li>
+									<li>Friday</li>
+									<li>Saturday</li>
+								</ul>
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-7">
+								<ul>
+									<li>09am – 06pm</li>
+									<li>09am – 06pm</li>
+									<li>09am – 06pm</li>
+									<li>09am – 06pm</li>
+									<li>09am – 06pm</li>
+									<li>Closed</li>
+									<li>Closed</li>
+								</ul>
 							</div>
 						</div>
 					</div>

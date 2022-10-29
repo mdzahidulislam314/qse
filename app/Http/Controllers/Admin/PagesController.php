@@ -53,13 +53,11 @@ class PagesController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'visibility' => 'required',
         ]);
 
         $page = new Page();
         $page->title = $request->title;
         $page->desc = $request->desc;
-        $page->visibility = $request->visibility;
         $page->meta_title = $request->meta_title;
         $page->meta_description = $request->meta_description;
         $page->meta_keywords = $request->meta_keywords;

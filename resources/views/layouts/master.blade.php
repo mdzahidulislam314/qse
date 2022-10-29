@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="app-url" content="{{ getBaseURL() }}">
 
-    <title>@yield('meta_title', get_setting('name').' | '.get_setting('site_moto'))</title>
+    <title>@yield('meta_title', get_setting('site_moto').' - '.get_setting('name'))</title>
 
     <meta charset="UTF-8">
     <meta name="robots" content="index, follow">
@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="{{asset('site/assets/css/animate.min.css')}}" />
     <link rel="stylesheet" href="{{asset('site/assets/css/magnific-popup.min.css')}}" />
     <link rel="stylesheet" href="{{asset('site/assets/css/owl.carousel.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="/admin/assets/vendor/toastr.min.css">
     <link rel="stylesheet" href="{{asset('site/assets/css/style.css')}}" />
 
     <link rel="stylesheet" type="text/css" href="{{asset('site/assets/css/custom.css')}}">
@@ -89,6 +90,7 @@
 <script src="{{asset('site/assets/js/counter-up.js')}}"></script>
 <script src="{{asset('site/assets/js/masonry.pkgd.min.js')}}"></script>
 <script src="{{asset('site/assets/js/wow.min.js')}}"></script>
+    <script src="/admin/assets/vendor/toastr.min.js"></script>
 <script src="{{asset('site/assets/js/main.js')}}"></script>
 
 <script src="/site/assets/js/custom.js"></script>

@@ -19,7 +19,7 @@ class SliderController extends Controller
         $sliders = Slider::all();
         $data = [
             'sliders' => $sliders,
-            'title' => 'Sliders & Banners',
+            'title' => 'Sliders',
         ];
 
         return view('admin.sliders.index', $data);
@@ -53,24 +53,21 @@ class SliderController extends Controller
         ]);
 
         if ($image = $request->file('image')) {
-            $imageName = uniqid() . '.' . 'webp';
-            Image::make($image)->encode('webp', 50)->save(public_path('/uploads/sliders/' . $imageName));
-            $imageUrl = '/uploads/sliders/' . $imageName;
+          $image =  image_upload($image,'uploads/sliders/',null);
         }
 
         $slider = new Slider();
         $slider->image_url = $request->image_url;
-        $slider->orders = $request->orders;
+        $slider->title = $request->title;
+        $slider->description = $request->description;
         if (isset($request->status)) {
             $slider->status = true;
         } else {
             $slider->status = false;
         }
-        if (isset($request->open_new_tab)) {
-            $slider->open_new_tab = '_blank';
-        }
+
         if ($image) {
-            $slider->image = $imageUrl;
+            $slider->image = $image;
         }
         $slider->save();
 
@@ -99,32 +96,21 @@ class SliderController extends Controller
     public function update(Request $request, $id)
     {
         $slider = Slider::findOrFail($id);
-        $oldImage = $slider->image;
 
         if ($image = $request->file('image')) {
-            if ($image && file_exists(public_path($oldImage))) {
-                unlink(public_path($oldImage));
-            }
-            $imageName = uniqid() . '.' . 'webp';
-            Image::make($image)->encode('webp', 50)->save(public_path('/uploads/sliders/' . $imageName));
-            $imageUrl = 'uploads/sliders/' . $imageName;
-        } else {
-            $imageUrl = $oldImage;
+            $oldImage = $slider->image;
+            $image = image_upload($image, 'uploads/sliders/', $oldImage);
         }
 
         $slider->image_url = $request->image_url;
-        $slider->orders = $request->orders;
+        $slider->title = $request->title;
+        $slider->description = $request->description;
         if (isset($request->status)) {
             $slider->status = true;
         } else {
             $slider->status = false;
         }
-        if (isset($request->open_new_tab)) {
-            $slider->open_new_tab = '_blank';
-        } else {
-            $slider->open_new_tab = null;
-        }
-        $slider->image = $imageUrl;
+        $slider->image = $image;
 
         $slider->save();
 

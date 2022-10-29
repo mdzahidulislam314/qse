@@ -32,7 +32,7 @@
                 <div class="page-wrapper">
                     <div class="page-body">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-block">
                                         <div class="dt-responsive table-responsive">
@@ -40,7 +40,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Image</th>
-                                                    <th>Order</th>
+                                                    <th>Title</th>
                                                     <th>Image Url</th>
                                                     <th>Status</th>
                                                     <th>Actions</th>
@@ -50,7 +50,7 @@
                                                 @foreach($sliders as $slider)
                                                     <tr>
                                                         <td><img src="{{asset($slider->image)}}" width="100px" height="50px"></td>
-                                                        <td>{{$slider->orders}}</td>
+                                                        <td>{{$slider->title}}</td>
                                                         <td>{{$slider->image_url}}</td>
                                                         <td>
                                                             <input type="checkbox" class="js-switch" id="statusChange" data-id="{{$slider->id}}" {{$slider->status === 1 ? 'checked' : ''}}/>
@@ -76,20 +76,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <form action="{{ route('sliders.store') }}" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="title">Image Url</label>
-                                                <input type="text" class="form-control" id="image_url" name="image_url" value="{{ old('image_url') }}"/>
+                                                <label for="title">Title</label>
+                                                <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}"/>
 
                                             </div>
                                             <div class="form-group">
-                                                <label for="orders">Order By</label>
-                                                <input type="number" class="form-control @error('orders') is-invalid @enderror"
-                                                       id="orders" name="orders" value="{{ old('orders') }}"/>
+                                                <label>Description</label>
+                                                <textarea class="ckeditor" name="description" cols="3">{{old('description')}}</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="title">Image Url</label>
+                                                <input type="text" class="form-control" id="image_url" name="image_url" value="{{ old('image_url') }}"/>
+
                                             </div>
                                             <div class="form-group mb-1">
                                                 <label for="image">Slider image<span class="text-danger">*</span> <small class=""> (940 x 509)</small></label>
@@ -117,10 +121,6 @@
                                                 <label class="form-label d-block">Active</label>
                                                 <input type="checkbox" class="js-switch" name="status"/>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="form-label d-block">Open New Tab</label>
-                                                <input type="checkbox" class="js-switch" name="open_new_tab"/>
-                                            </div>
                                             <button type="submit" class="btn btn-success">Save</button>
                                         </form>
                                     </div>
@@ -136,10 +136,8 @@
 
 @push('scripts')
 <script src="/admin/assets/js/pages/form-wizard.init.js"></script>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
-    $(document).ready(function(){
-        $('.dropify').dropify();
-    });
 
     $('body').on('change',"#statusChange",function () {
         var id = $(this).attr('data-id');
@@ -171,7 +169,7 @@
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            // confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(

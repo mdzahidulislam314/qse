@@ -30,7 +30,7 @@
                 <div class="page-wrapper">
                     <div class="page-body">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-block">
                                         <div class="dt-responsive table-responsive">
@@ -52,13 +52,9 @@
                                                             <a href="{{ route('faqs.edit', $row->id) }}">
                                                                 <i class="icon feather icon-edit f-w-600 f-16 text-c-green"></i>
                                                             </a>
-                                                            <a href="javascript:void(0);" onclick="deleteTable({{$row->id}})" class="text-danger ml-3">
+                                                            <a href="javascript:void(0);" data-href="{{route('faqs.destroy', $row->id)}}" class="text-danger ml-3 confirm-delete">
                                                                 <i class="feather icon-trash-2 f-w-600 f-16 text-c-red"></i>
                                                             </a>
-                                                            <form id="delete-form-{{$row->id}}" action="{{ route('faqs.destroy', $row->id) }}" method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -68,7 +64,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <form action="{{ route('faqs.store') }}" method="POST" enctype="multipart/form-data">
@@ -103,28 +99,12 @@
             </div>
         </div>
     </div>
+    @include('admin.modals.delete_modal')
 @stop
 
 @push('scripts')
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
-    function deleteTable(id){
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't to delete this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    document.getElementById('delete-form-'+id).submit(),
-                )
-            }
-        })
-    }
     $(document).ready(function() {
         $('.ckeditor').ckeditor();
     });

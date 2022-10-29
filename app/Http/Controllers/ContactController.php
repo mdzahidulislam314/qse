@@ -12,14 +12,15 @@ class ContactController extends Controller
         $this->validate($request, [
             'email' => 'required',
             'name' => 'required',
+            'subject' => 'required',
             'comments' => 'required',
         ]);
         $data = new Contact();
         $data->email = $request->email;
-        $data->phone = $request->phone;
+        $data->subject = $request->subject;
         $data->comments = $request->comments;
         $data->name = $request->name;
         $data->save();
-        return redirect()->back()->with('success', 'Successfully Sent Massgae!');
+        return redirect()->back()->with('success', 'Successfully Sent!');
     }
 }

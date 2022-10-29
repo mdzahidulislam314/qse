@@ -117,7 +117,6 @@
                                     <p class="alert alert-danger text-center" style="width: 100%">{{ Session::get('error') }}</p>
                                 @endif
                             </div>
-                            <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
                             <div class="form-group form-primary">
                                 <input class="form-control" type="email" name="email" required >
                                 <span class="form-bar"></span>
@@ -127,17 +126,6 @@
                                 <input type="password" class="form-control" name="password" required>
                                 <span class="form-bar"></span>
                                 <label class="float-label">Password</label>
-                            </div>
-                            <div class="row m-t-25 text-left">
-                                <div class="col-12">
-                                    <div class="checkbox-fade fade-in-primary">
-                                        <label>
-                                            <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                            <span class="text-inverse">Remember me</span>
-                                        </label>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row m-t-30">
                                 <div class="col-md-12">

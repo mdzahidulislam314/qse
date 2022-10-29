@@ -11,7 +11,6 @@
                     </a>
                 </li>
             </ul>
-            <div class="pcoded-navigation-label">Product Management</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="pcoded-hasmenu @yield('products')">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -31,21 +30,21 @@
                                 <span class="pcoded-mtext">Add Product</span>
                             </a>
                         </li>
-                        <li class="{{\Request::route()->getName() == 'categories.index' ? 'active' : ''}}">
-                            <a href="{{ route('categories.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Category</span>
-                            </a>
-                        </li>
-                        <li class="{{\Request::route()->getName() == 'brands.index' ? 'active' : ''}}">
-                            <a href="{{ route('brands.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Brands</span>
-                            </a>
-                        </li>
-                        <li class="{{\Request::route()->getName() == 'reviews.all' ? 'active' : ''}}">
-                            <a href="{{ route('reviews.all') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Reviews</span>
-                            </a>
-                        </li>
+{{--                        <li class="{{\Request::route()->getName() == 'categories.index' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('categories.index') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Category</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{\Request::route()->getName() == 'brands.index' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('brands.index') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Brands</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{\Request::route()->getName() == 'reviews.all' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('reviews.all') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Reviews</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </li>
                 <li class="{{\Request::route()->getName() == 'admin.orders.index' ? 'active' : ''}}">
@@ -57,36 +56,36 @@
                     </a>
                 </li>
 
-                <li class="pcoded-hasmenu @yield('marketing')">
-                    <a href="javascript:void(0)" class="waves-effect waves-dark">
-                        <span class="pcoded-micon">
-                            <i class="fa fa-bullhorn"></i>
-                        </span>
-                        <span class="pcoded-mtext">Marketing</span>
-                    </a>
-                    <ul class="pcoded-submenu">
-                        <li class="{{\Request::route()->getName() == 'flashdeals.index' || \Request::route()->getName() == 'flashdeals.create' || \Request::route()->getName() == 'flashdeals.edit' ? 'active' : ''}}">
-                            <a href="{{ route('flashdeals.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Flash Deals</span>
-                            </a>
-                        </li>
-                        <li class="{{\Request::route()->getName() == 'campaigns.index' || \Request::route()->getName() == 'campaigns.create' || \Request::route()->getName() == 'campaigns.edit' ? 'active' : ''}}">
-                            <a href="{{ route('campaigns.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Campaigns</span>
-                            </a>
-                        </li>
-                        <li class="{{\Request::route()->getName() == 'coupons.index' || \Request::route()->getName() == 'coupons.edit' ? 'active' : ''}}">
-                            <a href="{{ route('coupons.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Coupons</span>
-                            </a>
-                        </li>
-                        <li class="{{\Request::route()->getName() == 'subscribers.index' ? 'active' : ''}}">
-                            <a href="{{ route('subscribers.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Subscribers</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+{{--                <li class="pcoded-hasmenu @yield('marketing')">--}}
+{{--                    <a href="javascript:void(0)" class="waves-effect waves-dark">--}}
+{{--                        <span class="pcoded-micon">--}}
+{{--                            <i class="fa fa-bullhorn"></i>--}}
+{{--                        </span>--}}
+{{--                        <span class="pcoded-mtext">Marketing</span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="pcoded-submenu">--}}
+{{--                        <li class="{{\Request::route()->getName() == 'flashdeals.index' || \Request::route()->getName() == 'flashdeals.create' || \Request::route()->getName() == 'flashdeals.edit' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('flashdeals.index') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Flash Deals</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{\Request::route()->getName() == 'campaigns.index' || \Request::route()->getName() == 'campaigns.create' || \Request::route()->getName() == 'campaigns.edit' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('campaigns.index') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Campaigns</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{\Request::route()->getName() == 'coupons.index' || \Request::route()->getName() == 'coupons.edit' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('coupons.index') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Coupons</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{\Request::route()->getName() == 'subscribers.index' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('subscribers.index') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Subscribers</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
 
                 <li class="pcoded-hasmenu @yield('blog')">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">

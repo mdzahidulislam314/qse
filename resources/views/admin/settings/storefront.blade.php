@@ -51,12 +51,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-4">Header Text</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" name="header_text" value="{{ get_setting('header_text') }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
                                                 <label class="col-md-4">Site Email</label>
                                                 <div class="col-md-8">
                                                     <input type="email" class="form-control" name="email" value="{{ get_setting('email') }}">
@@ -69,9 +63,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-4">iMO/Whats'up</label>
+                                                <label class="col-md-4">Office Time</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control" name="imo_whatsup" value="{{ get_setting('imo_whatsup') }}">
+                                                    <input type="text" class="form-control" name="office_time" value="{{ get_setting('office_time') }}">
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-0 float-right">
@@ -96,30 +90,36 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
+                                                <label class="col-md-4">Footer Text </label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="footer_text" value="{{ get_setting('footer_text') }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <label class="col-md-4">Address</label>
                                                 <div class="col-md-8">
                                                     <textarea rows="2" class="form-control" id="example-text-input" name="address" >{{ get_setting('address') }}</textarea>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-md-4">Payment Image</label>
-                                                <div class="col-md-8">
-                                                    <div class="file-input">
-                                                        <input type="file" name="pay_method_img" id="pay_method_img" class="file-input__input" onchange="singleImagePreview(event,'ImgPreview')"/>
-                                                        <label class="file-input__label" for="pay_method_img">
-                                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload" class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                                <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
-                                                            </svg>
-                                                            <span>Upload file</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="d-flex align-items-center flex-wrap">
-                                                        <span class="pip">
-                                                            <img class="imageThumb" id="ImgPreview" src="{{ asset( get_setting('pay_method_img')) }}">
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+{{--                                            <div class="form-group row">--}}
+{{--                                                <label class="col-md-4">Payment Image</label>--}}
+{{--                                                <div class="col-md-8">--}}
+{{--                                                    <div class="file-input">--}}
+{{--                                                        <input type="file" name="pay_method_img" id="pay_method_img" class="file-input__input" onchange="singleImagePreview(event,'ImgPreview')"/>--}}
+{{--                                                        <label class="file-input__label" for="pay_method_img">--}}
+{{--                                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload" class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">--}}
+{{--                                                                <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                            <span>Upload file</span>--}}
+{{--                                                        </label>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="d-flex align-items-center flex-wrap">--}}
+{{--                                                        <span class="pip">--}}
+{{--                                                            <img class="imageThumb" id="ImgPreview" src="{{ asset( get_setting('pay_method_img')) }}">--}}
+{{--                                                        </span>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                             <div class="form-group row mb-0 float-right">
                                                 <div class="col-md-8">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">

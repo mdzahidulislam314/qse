@@ -32,7 +32,7 @@
                 <div class="page-wrapper">
                     <div class="page-body">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-block">
                                         <div class="dt-responsive table-responsive">
@@ -66,31 +66,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <form action="{{ route('pages.store') }}" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="validationCustom03">Page Name<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="title" id="validationCustom03" required>
-                                                <div class="invalid-feedback">
-                                                    Please provide a valid Page Title.
-                                                </div>
+                                                <label >Page Name<span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="title" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="validationCustom03">Description<span class="text-danger">*</span></label>
+                                                <label >Description<span class="text-danger">*</span></label>
                                                 <textarea class="ckeditor" name="desc"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="validationCustom03">Visibility<span class="text-danger">*</span></label>
-                                                <select name="visibility" class="form-control">
-                                                    <option value="{{\App\Page::TOP_HEADER}}">Top Header</option>
-                                                    <option value="{{\App\Page::MAIN_HEADER}}">Main Header</option>
-                                                    <option value="{{\App\Page::FOOTER_ONE}}">Footer One</option>
-                                                    <option value="{{\App\Page::FOOTER_TWO}}">Footer Two</option>
-                                                    <option value="{{\App\Page::FOOTER_THREE}}">Footer Three</option>
-                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label d-block">Status</label>
@@ -150,23 +137,6 @@
 @push('scripts')
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
-    function deleteTable(id){
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't to delete this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    document.getElementById('delete-form-'+id).submit(),
-                )
-            }
-        })
-    }
     $(document).ready(function() {
         $('.ckeditor').ckeditor();
     });

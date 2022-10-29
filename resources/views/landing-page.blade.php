@@ -8,58 +8,15 @@
     <main class="main">
         <div class="hero-section">
             <div class="hero-slider owl-carousel owl-theme">
-                <div class="hero-single" style="background: url(/site/assets/img/slider/slider-1.jpg);">
+                <div class="hero-single" style="background: url(https://cdn1.npcdn.net/userfiles/19726/service/1620211125_8fd3807c18cc9d6351abe5b4fff314b9.jpg?md5id=$md5id&new_width=750&new_height=1000&size=max);">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-md-7 col-lg-7">
                                 <div class="hero-content">
-                                    <h6 class="hero-sub-title" data-animation="fadeInUp" data-delay=".25s">We Are Skilled & Expert</h6>
-                                    <h1 class="hero-title" data-animation="fadeInUp" data-delay=".50s">Air Conditioning And <span>Heating</span> Services</h1>
+                                    <h1 class="hero-title" data-animation="fadeInUp" data-delay=".50s"> <span>Air Conditioning And Heating Services</span> </h1>
                                     <p data-animation="fadeInUp" data-delay=".75s">
                                         There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour or randomised.
                                     </p>
-                                    <div class="hero-btn" data-animation="fadeInUp" data-delay=".75s">
-                                        <a href="#" class="theme-btn">About More<i class="far fa-arrow-right"></i></a>
-                                        <a href="#" class="theme-btn theme-btn2">Learn More<i class="far fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-single" style="background: url(/site/assets/img/slider/slider-2.jpg);">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-md-7 col-lg-7">
-                                <div class="hero-content">
-                                    <h6 class="hero-sub-title" data-animation="fadeInUp" data-delay=".25s">We Are Skilled & Expert</h6>
-                                    <h1 class="hero-title" data-animation="fadeInUp" data-delay=".50s">Air Conditioning And <span>Heating</span> Services</h1>
-                                    <p data-animation="fadeInUp" data-delay=".75s">
-                                        There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour or randomised.
-                                    </p>
-                                    <div class="hero-btn" data-animation="fadeInUp" data-delay=".75s">
-                                        <a href="#" class="theme-btn">About More<i class="far fa-arrow-right"></i></a>
-                                        <a href="#" class="theme-btn theme-btn2">Learn More<i class="far fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-single" style="background: url(/site/assets/img/slider/slider-3.jpg);">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-md-7 col-lg-7">
-                                <div class="hero-content">
-                                    <h6 class="hero-sub-title" data-animation="fadeInUp" data-delay=".25s">We Are Skilled & Expert</h6>
-                                    <h1 class="hero-title" data-animation="fadeInUp" data-delay=".50s">Air Conditioning And <span>Heating</span> Services</h1>
-                                    <p data-animation="fadeInUp" data-delay=".75s">
-                                        There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour or randomised.
-                                    </p>
-                                    <div class="hero-btn" data-animation="fadeInUp" data-delay=".75s">
-                                        <a href="#" class="theme-btn">About More<i class="far fa-arrow-right"></i></a>
-                                        <a href="#" class="theme-btn theme-btn2">Learn More<i class="far fa-arrow-right"></i></a>
-                                    </div>
                                 </div>
                             </div>
                         </div>

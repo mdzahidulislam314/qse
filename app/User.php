@@ -32,4 +32,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Order');
     }
+
+    public function fetchGravatar()
+    {
+        $hash = md5( strtolower( trim( $this->email) ) );
+        return "https://www.gravatar.com/avatar/" . $hash;
+    }
 }

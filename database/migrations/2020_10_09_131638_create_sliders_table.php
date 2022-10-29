@@ -18,8 +18,8 @@ class CreateSlidersTable extends Migration
             $table->string('image_url')->nullable();
             $table->string('image')->nullable();
             $table->boolean('status')->nullable();
-            $table->string('open_new_tab')->nullable();
-            $table->integer('orders')->nullable();
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
