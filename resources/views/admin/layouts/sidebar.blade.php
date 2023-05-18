@@ -183,21 +183,21 @@
                                 <span class="pcoded-mtext">Sliders</span>
                             </a>
                         </li>
-                        <li class="{{\Request::route()->getName() == 'banners.index' || \Request::route()->getName() == 'banners.edit' ? 'active' : ''}}">
-                            <a href="{{ route('banners.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Banners</span>
-                            </a>
-                        </li>
+{{--                        <li class="{{\Request::route()->getName() == 'banners.index' || \Request::route()->getName() == 'banners.edit' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('banners.index') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Banners</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li class="{{\Request::route()->getName() == 'store.front' ? 'active' : ''}}">
                             <a href="{{ route('store.front') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Appearance</span>
                             </a>
                         </li>
-                        <li class="{{\Request::route()->getName() == 'payment.index' ? 'active' : ''}}">
-                            <a href="{{ route('payment.index') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-mtext">Payment Method</span>
-                            </a>
-                        </li>
+{{--                        <li class="{{\Request::route()->getName() == 'payment.index' ? 'active' : ''}}">--}}
+{{--                            <a href="{{ route('payment.index') }}" class="waves-effect waves-dark">--}}
+{{--                                <span class="pcoded-mtext">Payment Method</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </li>
 

@@ -18,6 +18,15 @@ class PageController extends Controller
         return view('pages.contact-us', $data);
     }
 
+    public function about()
+    {
+        $settingsArr = SettingsService::getSettingsArray();
+        $data = [
+            'settingsArr' => $settingsArr
+        ];
+        return view('pages.about-us', $data);
+    }
+
     public function faqs()
     {
         $faqs = Faq::orderBy('order_by', 'asc')->get();

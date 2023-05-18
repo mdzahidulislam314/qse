@@ -43,6 +43,7 @@ Route::get('/all-blogs', 'BlogController@index')->name('blogs.all');
 Route::get('/show/blogs/{slug}', 'BlogController@showBlog')->name('show.blogs');
 //pages
 Route::get('/contact-us', 'PageController@contact')->name('contact.page');
+Route::get('/about-us', 'PageController@about')->name('about.page');
 Route::get('/faqs', 'PageController@faqs')->name('faqs.page');
 Route::get('/page/{slug}', 'PageController@show')->name('all.pages');
 
