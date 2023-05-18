@@ -24,56 +24,16 @@ class LandingPageController extends Controller
      */
     public function index()
     {
-        $featureProducts = Product::with(['productAltImages','reviews'])
-            ->where('featured', true)
-            ->where('new_arrival', true)
-            ->where('hot_deal', true)
-            ->active()
-            ->inRandomOrder()
-            ->take(10)
-            ->get(['slug','image','id','spacial_price','price','name']);
-        $newArrivalPro = Product::with(['productAltImages','reviews'])
-            ->where('new_arrival', true)
-            ->active()
-            ->inRandomOrder()
-            ->take(10)
-            ->get(['slug','image','id','spacial_price','price','name']);
 
-        $hotDealPro = Product::with(['productAltImages','reviews'])
-            ->where('hot_deal', true)
-            ->active()
-            ->inRandomOrder()
-            ->take(10)
-            ->get(['slug','image','id','spacial_price','price','name']);
-        $banners = Banner::where('status', true)->orderBy('orders', 'ASC')->take(5)->get();
         $brands = Brand::where('status', true)->latest()->get(['image']);
         $blogs = Blog::where('is_active', true)->latest()->take(10)->get(['slug','image','title','created_at']);
 
         $sliders = Slider::where('status', true)->take(6)->get();
-        $flashDeal  = Flashdeal::where('is_active', true)->where('is_feature', true)->first(['start_date','end_date','slug']);
-        //category show
-        $showHomepageCat = Category::where('status', true)->showhomepage()->take(6)->get(['name','id','slug']);
-        $products_data = [];
-
-        foreach ($showHomepageCat as $cat){
-            $products = Product::where('category_id', $cat->id)->take(10)->get();
-            $single = [
-                'category' => $cat,
-                'products' => $products
-            ];
-            array_push($products_data, $single);
-        }
 
         $data = [
-          'featureProducts' => $featureProducts,
-          'newArrivalPro' => $newArrivalPro,
-          'hotDealPro' => $hotDealPro,
-          'banners' => $banners,
             'brands' => $brands,
-            'products_data' => $products_data,
             'sliders' => $sliders,
             'blogs' => $blogs,
-            'flashDeal' => $flashDeal,
         ];
         return view('landing-page',$data);
     }

@@ -55,10 +55,6 @@
                                                         <span class="messages"></span>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="validationCustom03">Product SKU<span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" name="code" id="validationCustom03" required value="{{$product->code}}">
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label for="validationCustom03">Quantity<span class="text-danger">*</span></label>
                                                         <input type="number" class="form-control" name="quantity" id="validationCustom03" required value="{{$product->quantity}}">
                                                     </div>
@@ -72,26 +68,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="form-group">
-                                                        <label for="">Sizes(comma separated)</label>
-                                                        <input type="text" class="form-control" name="sizes" value="{{$product->sizes}}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">Colors(comma separated)</label>
-                                                        <input type="text" class="form-control" name="colors" value="{{$product->colors}}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Video Link</label>
-                                                        <input type="link" class="form-control" name="video_link" value="{{$product->video_link}}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="form-group">
-                                                        <label for="validationCustom03">Short Description<span class="text-danger">*</span></label>
+                                                        <label for="validationCustom03">Specification</label>
                                                         <textarea class="ckeditor" name="details">{{$product->details}}</textarea>
                                                     </div>
                                                 </div>
@@ -109,32 +90,11 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="form-group">
-                                                        <label class="control-label">Category <span class="text-danger">*</span></label>
-                                                        <select name="category_id" class="js-example-basic-single form-control">
-                                                            <option value="" selected>Please Select</option>
-                                                            @foreach($categories as $cat)
-                                                                <option value="{{ $cat->id }}" {{ ($cat->id == $product->category_id) ? 'selected' : ''}}>{{ $cat->name }}</option>
-                                                                @if($cat->children->count())
-                                                                    @foreach($cat->children as $child)
-                                                                        <option value="{{ $child->id }}" {{ ($child->id == $product->category_id) ? 'selected' : ''}}>- {{ $child->name }}</option>
-                                                                        @if($child->children->count())
-                                                                            @foreach($child->children as $row)
-                                                                                <option value="{{ $row->id }}" {{ ($row->id == $product->category_id) ? 'selected' : ''}}>-- {{ $row->name}}</option>
-                                                                            @endforeach
-                                                                        @endif
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label class="control-label">Brands</label>
-                                                        <span class="d-block mb-2">Name: {{$product->brand->name ?? 'null'}}</span>
+                                                        <span class="d-block mb-2">Name: <strong class="font-bold text-success">{{$product->brand->name ?? 'null'}}</strong></span>
                                                         <select class="form-control select2" name="brand_id" id="getBrand">
                                                             <option value=''>Select</option>
                                                         </select>
-                                                        <a href="javascript:void(0);" class="btn btn-info btn-sm mt-2"
-                                                           id="brand-create"><i class="ri-add-fill"></i>Add New</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -193,30 +153,6 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="form-group">
-                                                        <label>Product New From</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" data-provide="datepicker" data-date-format="yyyy-mm-dd"
-                                                                   data-date-autoclose="true" name="pro_new_from" value="{{$product->pro_new_from}}">
-                                                            <div class="input-group-append">
-                                                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Product New To</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" data-provide="datepicker" data-date-format="yyyy-mm-dd"
-                                                                   data-date-autoclose="true" name="pro_new_to" value="{{$product->pro_new_to}}">
-                                                            <div class="input-group-append">
-                                                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="form-group">
                                                         <label for="meta_title" class="col-form-label">Meta Title</label>
                                                         <input type="text" class="form-control" name="meta_title" id="meta_title" value="{{$product->meta_title}}">
                                                         <span class="messages"></span>
@@ -255,7 +191,7 @@
                                             </div>
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <div class="product_status d-flex justify-content-around">
+                                                    <div class="product_status">
                                                         <div class="form-group">
                                                             <label class="form-label d-block">Status</label>
                                                             <input type="checkbox" class="js-switch" name="is_enable" {{ ( $product->is_enable == true) ? 'checked' : '' }}/>
@@ -263,14 +199,6 @@
                                                         <div class="form-group">
                                                             <label class="form-label d-block">Featured</label>
                                                             <input type="checkbox" class="js-switch" name="featured" {{ ( $product->featured == true) ? 'checked' : '' }}/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="form-label d-block">Hot Deal</label>
-                                                            <input type="checkbox" class="js-switch" name="hot_deal" {{ ( $product->hot_deal == true) ? 'checked' : '' }}/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="form-label d-block">New Arrival</label>
-                                                            <input type="checkbox" class="js-switch" name="new_arrival" {{ ( $product->new_arrival == true) ? 'checked' : '' }}/>
                                                         </div>
                                                     </div>
                                                 </div>

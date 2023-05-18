@@ -36,7 +36,6 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::parents()->get();
 
         if (Session::has('pro_alt_temp_img')) {
             Session::forget('pro_alt_temp_img');
@@ -47,10 +46,8 @@ class ProductController extends Controller
                 unlink($file); //delete file
             }
         }
-
         $brands = Brand::all();
         $data = [
-            'categories' => $categories,
             'brands' => $brands,
         ];
         return view('admin.products.create', $data);
@@ -69,7 +66,6 @@ class ProductController extends Controller
 
         $product = new Product();
         $product->name = $request->name;
-        $product->code = $request->code;
         if ($mathcSlugCount > 0) {
             $product->slug = Str::slug($request->name . '+' . '-' . Str::random());
         } else {
@@ -79,15 +75,9 @@ class ProductController extends Controller
         $product->video_link = $request->video_link;
         $product->price = $request->price;
         $product->brand_id = $request->brand_id;
-        $product->category_id = $request->category_id;
-        $product->subcategory_id = $request->subcategory_id;
         $product->spacial_price = $request->spacial_price;
         $product->description = $request->description;
         $product->quantity = $request->quantity;
-        $product->pro_new_from = $request->pro_new_from;
-        $product->pro_new_to = $request->pro_new_to;
-        $product->sizes = $request->sizes ?? null;
-        $product->colors = $request->colors ?? null;
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -120,16 +110,6 @@ class ProductController extends Controller
             $product->is_enable = true;
         } else {
             $product->is_enable = false;
-        }
-        if (isset($request->hot_deal)) {
-            $product->hot_deal = true;
-        } else {
-            $product->hot_deal = false;
-        }
-        if (isset($request->new_arrival)) {
-            $product->new_arrival = true;
-        } else {
-            $product->new_arrival = false;
         }
 
         if ($product->save()){

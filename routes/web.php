@@ -93,6 +93,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/get-sub','Admin\ProductController@getSub')->name('sub.get');
     Route::resource('products', 'Admin\ProductController');
 
+    Route::get('/update-status/{id}/{status}','Admin\ServiceController@updateStatus');
+    Route::get('/update-feature/{id}/{status}','Admin\ServiceController@updateFeature');
+    Route::resource('services', 'Admin\ServiceController');
+
     Route::resource('blogs', 'Admin\BlogController');
     Route::resource('blogscategories', 'Admin\BlogCategoryController');
 

@@ -22,25 +22,28 @@ class ShopController extends Controller
             $pagination = request()->count;
         }
 
-        $categories = Category::all();
+//        $categories = Category::all();
         $brands = Brand::where('status', 1)->get();
         $cat = null;
 
-        if (request()->category) {
-            // get category by slug
-            $cat = Category::where('slug', request()->category)->first();
-            if($cat === null) {
-                return view('shop')->with([
-                    'categories' => $categories,
-                    'cat_not_found' => true,
-                ]);
-            }
-            $products = Product::with('category')->where('category_id', $cat->id);
-            $categoryName = optional($categories->where('slug', request()->category)->first())->name;
-        } else {
-            $products = Product::with('category')->where('is_enable', true);
-            $categoryName = 'Shop Now';
-        }
+//        if (request()->category) {
+//            // get category by slug
+//            $cat = Category::where('slug', request()->category)->first();
+//            if($cat === null) {
+//                return view('shop')->with([
+//                    'categories' => $categories,
+//                    'cat_not_found' => true,
+//                ]);
+//            }
+//            $products = Product::with('category')->where('category_id', $cat->id);
+//            $categoryName = optional($categories->where('slug', request()->category)->first())->name;
+//        } else {
+//            $products = Product::with('category')->where('is_enable', true);
+//            $categoryName = 'Shop Now';
+//        }
+
+        $products = Product::with('category')->where('is_enable', true);
+        $categoryName = 'Shop Now';
 
         if (request()->sort == 'low_high') {
             $products = $products
@@ -58,7 +61,7 @@ class ShopController extends Controller
 
         return view('shop')->with([
             'products' => $products,
-            'categories' => $categories,
+//            'categories' => $categories,
             'categoryName' => $categoryName,
             'cat' => $cat,
             'brands' => $brands,

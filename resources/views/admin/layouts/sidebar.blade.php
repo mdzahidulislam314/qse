@@ -30,21 +30,31 @@
                                 <span class="pcoded-mtext">Add Product</span>
                             </a>
                         </li>
-{{--                        <li class="{{\Request::route()->getName() == 'categories.index' ? 'active' : ''}}">--}}
-{{--                            <a href="{{ route('categories.index') }}" class="waves-effect waves-dark">--}}
-{{--                                <span class="pcoded-mtext">Category</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="{{\Request::route()->getName() == 'brands.index' ? 'active' : ''}}">--}}
-{{--                            <a href="{{ route('brands.index') }}" class="waves-effect waves-dark">--}}
-{{--                                <span class="pcoded-mtext">Brands</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="{{\Request::route()->getName() == 'reviews.all' ? 'active' : ''}}">--}}
-{{--                            <a href="{{ route('reviews.all') }}" class="waves-effect waves-dark">--}}
-{{--                                <span class="pcoded-mtext">Reviews</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+                        <li class="{{\Request::route()->getName() == 'brands.index' ? 'active' : ''}}">
+                            <a href="{{ route('brands.index') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Brands</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="pcoded-hasmenu @yield('services')">
+                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-box"></i>
+                        </span>
+                        <span class="pcoded-mtext">Services</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class="{{\Request::route()->getName() == 'services.index' || \Request::route()->getName() == 'services.edit' ? 'active' : ''}}">
+                            <a href="{{ route('services.index') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">All Service</span>
+                            </a>
+                        </li>
+                        <li class="{{\Request::route()->getName() == 'services.create' ? 'active' : ''}}">
+                            <a href="{{ route('services.create') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Add Service</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="{{\Request::route()->getName() == 'admin.orders.index' ? 'active' : ''}}">

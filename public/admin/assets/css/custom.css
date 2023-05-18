@@ -149,6 +149,7 @@ a.fileinput-upload.fileinput-upload-button {
     bottom: -30px;
     left: 0;
     right: 0;
+    border-top: 1px solid #ddd;
 }
 .remove {
     display: block;
@@ -299,4 +300,7 @@ span.pip .imageThumb {
     font-size: 22px;
     margin-top: 6px;
     padding: 10px;
+}
+label {
+    font-weight: 600 !important;
 }
